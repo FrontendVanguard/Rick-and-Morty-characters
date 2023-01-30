@@ -1,24 +1,29 @@
-import { Character } from "@/containers/CharactersContainer/Characters";
-import React from "react";
+import { Character } from '@/containers/CharactersContainer/Characters'
+import { useRouter } from 'next/router'
+import React from 'react'
 
-import { UserContainer, SubText, TextLink, Image } from "./styles";
+import { Image, SubText, UserContainer } from './styles'
 
 interface CharacterPreviewProps {
-  character: Character;
+  character: Character
 }
 
 export const CharacterPreview: React.FC<CharacterPreviewProps> = ({
   character,
 }) => {
-  const { name, id, image, species } = character;
+  const router = useRouter()
+
+  const { name, id, image, species } = character
+
+  const linkTo = async (): Promise<void> => {
+    await router.push(`character/${id}`)
+  }
 
   return (
-    <UserContainer>
-      <Image src={image} alt={name} isRound={true} />
+    <UserContainer onClick={linkTo.bind(this)}>
+      <Image src={image} alt={name} isRound />
       <SubText>Name: {name}</SubText>
-      <SubText>
-        Species: <TextLink>{species}</TextLink>
-      </SubText>
+      <SubText>Species: {species}</SubText>
     </UserContainer>
-  );
-};
+  )
+}

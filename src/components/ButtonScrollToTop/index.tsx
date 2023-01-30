@@ -1,30 +1,29 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react'
 
-import { ScrollContainer } from "./styles";
+import { ScrollContainer } from './styles'
 
-export const ButtonScrollToTop = () => {
-  const [isVisible, setisVisible] = useState(false);
+export const ButtonScrollToTop: React.FC = () => {
+  const [isVisible, setisVisible] = useState(false)
 
-  const onScroll = () => {
-    window.pageYOffset > 200 ? setisVisible(true) : setisVisible(false);
-  };
+  const onScroll = (): void => {
+    setisVisible(window.pageYOffset > 200)
+  }
 
-  const scrollToTop = () => {
-    window.scrollTo(0, 0);
-  };
+  const scrollToTop = (): void => {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
 
   useEffect(() => {
-    window.addEventListener("scroll", onScroll);
+    window.addEventListener('scroll', onScroll)
+
     return () => {
-      window.removeEventListener("scroll", onScroll);
-    };
-  }, []);
+      window.removeEventListener('scroll', onScroll)
+    }
+  }, [])
 
   return isVisible ? (
     <ScrollContainer onClick={scrollToTop}>
-      <span>^ Наверх</span>
+      <span>^ Go up</span>
     </ScrollContainer>
-  ) : (
-    <></>
-  );
-};
+  ) : null
+}
