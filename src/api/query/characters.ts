@@ -1,20 +1,23 @@
 import { gql } from '@apollo/client'
 
 export const GET_ALL_CHARACTERS = gql`
-  query Query($page: Int) {
-    characters(page: $page) {
+  query Characters($filter: FilterCharacter, $page: Int) {
+    characters(filter: $filter, page: $page) {
       results {
         name
         image
         species
         id
       }
+      info {
+        pages
+      }
     }
   }
 `
 
 export const GET_CHARACTER = gql`
-  query Query($characterId: ID!) {
+  query Character($characterId: ID!) {
     character(id: $characterId) {
       created
       gender

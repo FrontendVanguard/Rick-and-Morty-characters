@@ -1,4 +1,4 @@
-import { Character } from '@/containers/CharactersContainer/Characters'
+import { Character } from '@/containers/Characters/Characters'
 import { useRouter } from 'next/router'
 import React from 'react'
 

@@ -95,6 +95,7 @@ module.exports = {
         next: ['if', 'return'],
       },
     ],
+
     'prefer-destructuring': 'off',
     'react/prop-types': 'off',
     'react/destructuring-assignment': 'off',
@@ -105,6 +106,5 @@ module.exports = {
         namedComponents: 'arrow-function',
       },
     ],
-    'react/require-default-props': 'off',
   },
 }

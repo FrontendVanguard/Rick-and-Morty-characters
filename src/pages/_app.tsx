@@ -1,15 +1,10 @@
-import type { AppProps } from 'next/app'
-import { ApolloProvider, ApolloClient, InMemoryCache } from '@apollo/client'
-
+import { client } from '@/api/client'
 import GlobalStyle from '@/globalStyles'
+import { ApolloProvider } from '@apollo/client'
+import type { AppProps } from 'next/app'
 import Head from 'next/head'
 
-const client = new ApolloClient({
-  uri: 'https://rickandmortyapi.com/graphql',
-  cache: new InMemoryCache(),
-})
-
-export default function App({ Component, pageProps }: AppProps) {
+const App: React.FC<AppProps> = ({ Component, pageProps }: AppProps) => {
   return (
     <>
       <Head>
@@ -22,3 +17,5 @@ export default function App({ Component, pageProps }: AppProps) {
     </>
   )
 }
+
+export default App

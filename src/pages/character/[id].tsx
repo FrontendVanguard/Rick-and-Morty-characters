@@ -1,4 +1,4 @@
-import { Character } from '@/components/Character'
+import { Character } from '@/containers/Character'
 import { NextPage } from 'next'
 import React from 'react'
 
